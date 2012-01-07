@@ -95,15 +95,15 @@ function onLoad() {
         countries = {};
         tm.filter("counter");
         if (!filters.length) {//show 'All'
-        	  for (cc in cm) {
-        		  if (countries[cc] > 0) {
-        			  dynamicSizeMarker(cc, countries[cc]);
-        			}
-        		  else if (cm[cc].marker) {
-        			  tm.map.removeOverlay(cm[cc].marker);
-        			  cm[cc].marker = null;
-            	}
-            }
+        	for (cc in cm) {
+        	  if (countries[cc] > 0) {
+      			  dynamicSizeMarker(cc, countries[cc]);
+      			}
+      		  else if (cm[cc].marker) {
+      			  tm.map.removeOverlay(cm[cc].marker);
+        		  cm[cc].marker = null;
+          	}
+          }
         }
       });
     }
@@ -114,7 +114,6 @@ function onLoad() {
   tm.addFilter("map", TimeMap.filters.showAll);
 }
 
-// TODO better naming!
 TimeMap.filters.hideFuture = function(item) {
     var topband = item.dataset.timemap.timeline.getBand(0);
     var maxVisibleDate = topband.getMaxVisibleDate().getTime();
@@ -151,11 +150,7 @@ return true;
 
 
 function generateIcon(count) {
-var minSize = 16,
-    maxSize = 80,
-    minCount = 1,
-    maxCount = 80,
-    iconSize = Math.round(((count - minCount)*(maxSize - minSize))/(maxCount - minCount) + minSize),
+var iconSize = Math.round(((count - 1)*64)/80 + 16),
     opts = {};
 
   opts.width = iconSize;
@@ -208,7 +203,7 @@ function removeSizeMarkers(){
 	}
 }
 
-$(document).load(function(){
+$(document).ready(function(){
 	$('#tm-all').attr('checked', true);
 	$("#tmfilters input[type=checkbox]:not('#tm-all')").each(function() {
 		$(this).attr('checked', false);

@@ -47,7 +47,7 @@ var
     GEvent = window.GEvent,
     // Google icon path
     GIP = "http://www.google.com/intl/en_us/mapfiles/ms/icons/",
-    GIPS = "./timemap/images/",
+    GIPS = "./js/timemap/images/",
     // aliases for class names, allowing munging
     TimeMap, TimeMapFilterChain, TimeMapDataset, TimeMapTheme, TimeMapItem;
 
@@ -2828,7 +2828,7 @@ TimeMap.themes = {
 	grey: new TimeMapTheme({
 		iconImage: GIPS + "marker-grey.png",
 	    color: "#999999",
-	    eventIconImage: GIPS + "grey-circle.png"
+	    eventIconImage: "grey-circle.png"
 	})
 
 };
