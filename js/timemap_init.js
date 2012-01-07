@@ -204,6 +204,17 @@ function removeSizeMarkers(){
 }
 
 $(document).ready(function(){
+
+  var height = $(window).height();
+  $('#mapcontainer').css('height', (height - 50) * .6 + 'px');
+  $('#timelinecontainer').css('height', (height - 50) * .4 + 'px');
+
+  $(window).resize(function(){
+    var height = $(window).height();
+    $('#mapcontainer').css('height', (height - 50) * .6 + 'px');
+    $('#timelinecontainer').css('height', (height - 50) * .4 + 'px');
+  });
+
 	$('#tm-all').attr('checked', true);
 	$("#tmfilters input[type=checkbox]:not('#tm-all')").each(function() {
 		$(this).attr('checked', false);

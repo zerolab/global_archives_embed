@@ -6,12 +6,30 @@
 
   <title>Global Archives Embed</title>
   <style type="text/css">
-    #map {
-      height:400px;
+    body {
+      color:#1f1f1f;
+      font:75%/1.5 "Helvetica Neue", Helvetica, Arial, FreeSans, sans-serif;
+      margin:0;
+    }
+    #mapcontainer {
+      height:60%;
+      min-height:200px;
       width:100%;
     }
+
+    #map {
+      height:100%;
+      width:100%;
+    }
+
+    #timelinecontainer {
+      height:35%;
+      min-height:200px;
+      width:100%;
+    }
+
     #timeline {
-      height:200px;
+      height:100%;
       width:100%;
     }
   </style>
@@ -26,34 +44,31 @@
   <script src="./js/timemap_init.js"></script>
 </head>
 <body onload="onLoad();" onunload="GUnload();">
-  <div id="timemap">
-    <div id="mapcontainer">
-      <div id="map"></div>
-      </div>
-
-      <div id="tmfilters">
-        <form>
-          <label for="tm-all" class="tm-all"> <input value="All" id="tm-all" checked="checked" type="checkbox" /> Group by country </label>
-          <label for="tm-ua" class="tm-ua"> <input value="Under Arrest" id="tm-ua" type="checkbox" /> Under Arrest </label>
-          <label for="tm-rel" class="tm-rel"> <input value="Released" id="tm-rel" type="checkbox" /> Released </label>
-          <label for="tm-th" class="tm-th"> <input value="Threatened" id="tm-th" type="checkbox" /> Threatened </label>
-          <label for="tm-de" class="tm-de"> <input value="Deceased" id="tm-de" type="checkbox" /> Deceased </label>
-          <label for="tm-unk" class="tm-unk"> <input value="Unknown" id="tm-unk" type="checkbox" /> Unknown </label>
-        </form>
-      </div>
-
-      <div id="timeline-info">
-        <form id="tm-nav">
-          <button class="form-submit" title="earliest">Earliest case</button>
-          <button title="now" class="form-submit">Today</button>
-          <button class="form-submit" title="latest">Last case</button>
-        </form>
-      </div>
-
-      <div id="timelinecontainer">
-      <div id="timeline"></div>
-    </div>
+  <div id="mapcontainer">
+    <div id="map"></div>
   </div>
-</div>
+
+  <div id="tmfilters">
+    <form>
+      <label for="tm-all" class="tm-all"> <input value="All" id="tm-all" checked="checked" type="checkbox" /> Group by country </label>
+      <label for="tm-ua" class="tm-ua"> <input value="Under Arrest" id="tm-ua" type="checkbox" /> Under Arrest </label>
+      <label for="tm-rel" class="tm-rel"> <input value="Released" id="tm-rel" type="checkbox" /> Released </label>
+      <label for="tm-th" class="tm-th"> <input value="Threatened" id="tm-th" type="checkbox" /> Threatened </label>
+      <label for="tm-de" class="tm-de"> <input value="Deceased" id="tm-de" type="checkbox" /> Deceased </label>
+      <label for="tm-unk" class="tm-unk"> <input value="Unknown" id="tm-unk" type="checkbox" /> Unknown </label>
+    </form>
+  </div>
+
+  <div id="timeline-info">
+    <form id="tm-nav">
+      <button class="form-submit" title="earliest">Earliest case</button>
+      <button title="now" class="form-submit">Today</button>
+      <button class="form-submit" title="latest">Last case</button>
+    </form>
+  </div>
+
+  <div id="timelinecontainer">
+    <div id="timeline"></div>
+  </div>
 </body>
 </html>
