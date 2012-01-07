@@ -264,9 +264,10 @@ function dynamicSizeMarker(cc, count) {
 
 function htmlList(keys, urls, cc) {
 	var html = '<div class="infodescription list">';
-	html += '<span class="'+ cc +'"><img src="./sites/all/themes/gv/images/flags/'+cc.toLowerCase()+'.gif"> <a href="bloggers/'+ cm[cc].name +'">'+ cm[cc].name +'</a></span>';
+	html += '<h2><img src="http://threatened.globalvoicesonline.org/sites/all/themes/gv_threatened/images/flags/'+cc.toLowerCase()+'.gif"> '
+       + '<a href="http://threatened.globalvoicesonline.org/bloggers/'+ cm[cc].name +'" target=_blank>'+ cm[cc].name +'</a></h2>';
 	for (var i=0; i<keys.length;i++) {
-		html += '<a href="' + urls[i] + '">' + keys[i] + '</a><br/>';
+		html += '<a href="http://threatened.globalvoicesonline.org/' + urls[i] + '" target=_blank>' + keys[i] + '</a><br/>';
 	}
 	return html+'</div>';
 }
