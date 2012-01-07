@@ -5,7 +5,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Global Archives Embed</title>
+  <style type="text/css">
+    #map {
+      height:400px;
+      width:100%;
+    }
+    #timeline {
+      height:200px;
+      width:100%;
+    }
+  </style>
+
+  <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA4A20khrw6ws6G9zPM1mzRhTDjF32IQ1zA0BVcGSuGouGRvo0kRSKNDr96LtcC48U2vwGT-e0Zmcnsw"></script>
+  <script src="./js/timemap/lib/timeline-2.4.x.js"></script>
+  <script src="./js/timemap/timemap.js"></script>
+  <script src="./js/timemap/loaders/json.js"></script>
+  <script src="./js/cc.min.js"></script>
+  <script src="./js/mapiconmaker.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="./js/gv_timemap.js"></script>
 </head>
-<body>
+<body onload="onLoad();" onunload="GUnload();">
+  <div id="timemap">
+    <div id="mapcontainer">
+      <div id="map"></div>
+      </div>
+
+      <div id="tmfilters">
+        <form>
+          <label for="tm-all" class="tm-all"> <input value="All" id="tm-all" checked="checked" type="checkbox" /> Group by country </label>
+          <label for="tm-ua" class="tm-ua"> <input value="Under Arrest" id="tm-ua" type="checkbox" /> Under Arrest </label>
+          <label for="tm-rel" class="tm-rel"> <input value="Released" id="tm-rel" type="checkbox" /> Released </label>
+          <label for="tm-th" class="tm-th"> <input value="Threatened" id="tm-th" type="checkbox" /> Threatened </label>
+          <label for="tm-de" class="tm-de"> <input value="Deceased" id="tm-de" type="checkbox" /> Deceased </label>
+          <label for="tm-unk" class="tm-unk"> <input value="Unknown" id="tm-unk" type="checkbox" /> Unknown </label>
+        </form>
+      </div>
+
+      <div id="timeline-info">
+        <form id="tm-nav">
+          <button class="form-submit" title="earliest">Earliest case</button>
+          <button title="now" class="form-submit">Today</button>
+          <button class="form-submit" title="latest">Last case</button>
+        </form>
+      </div>
+
+      <div id="timelinecontainer">
+      <div id="timeline"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

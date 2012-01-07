@@ -33,7 +33,7 @@ function onLoad() {
     title: "Bloggers",
 		type: "jsonp",
     options: {
-      url: Drupal.settings.basePath + "data/items.json&callback=",
+      url: "http://threatened.globalvoicesonline.org/data/items.json&callback=",
       preloadFunction: function(result) {return result.items;}
     }
   }],
@@ -88,8 +88,6 @@ function onLoad() {
     updateTimeframe(tm.timeline.getBand(0));
 
     $('.timeline-message-container').hide();
-    // show us Twitter and Facebook
-    addSocialBlocks();
 
       // update map on timeline scroll
       tm.timeline.getBand(0).addOnScrollListener(function() {
@@ -185,7 +183,6 @@ function dynamicSizeMarker(cc, count) {
 		cm[cc].marker.openInfoWindowHtml(htmlList(cm[cc].items, cm[cc].urls, cc));
 	});
 
-  GEvent.addListener(cm[cc].marker, "infowindowopen", updateInfoList);
 	tm.map.addOverlay(cm[cc].marker);
 }
 
@@ -211,7 +208,7 @@ function removeSizeMarkers(){
 	}
 }
 
-Drupal.behaviors.gv_timemap = function(context) {
+$(document).load(function(){
 	$('#tm-all').attr('checked', true);
 	$("#tmfilters input[type=checkbox]:not('#tm-all')").each(function() {
 		$(this).attr('checked', false);
@@ -280,7 +277,7 @@ Drupal.behaviors.gv_timemap = function(context) {
 
 		return false;
 	});
-};
+});
 
 function updateTimeframe(bandObj) {
 	var min = new String(bandObj.getMinVisibleDate()).split(/\s/);
