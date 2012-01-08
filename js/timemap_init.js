@@ -19,14 +19,14 @@ lookup = null;
 
 $(function(){
 
-  var height = $(window).height();
-  $('#mapcontainer').css('height', (height - 50) * .6 + 'px');
-  $('#timelinecontainer').css('height', (height - 50) * .4 + 'px');
+  var height = $(window).height(),
+      controls_height = $("#timeline-controls").outerHeight();
+  $('#mapcontainer').css('height', height - controls_height - 100 + 'px');
 
   $(window).resize(function(){
-    var height = $(window).height();
-    $('#mapcontainer').css('height', (height - 50) * .6 + 'px');
-    $('#timelinecontainer').css('height', (height - 50) * .4 + 'px');
+    var height = $(window).height(),
+        controls_height = $("#timeline-controls").outerHeight();
+    $('#mapcontainer').css('height', height - controls_height - 100 + 'px');
   });
 
   tm = TimeMap.init({
@@ -36,8 +36,7 @@ $(function(){
     options: {
 		  mapType: 'normal',
 		  mapCenter: new GLatLng(30,18),
-		  centerMapOnItems: false,
-		  mapZoom: 2
+      showMapTypeCtrl: false,
     },
     datasets: [{
       id: "bloggers",
@@ -54,8 +53,6 @@ $(function(){
     ],
 
     dataDisplayedFunction: function(tm) {
-      tm.map.setZoom(2);
-
       tm.addFilterChain("counter",
         function(item) {
           var cc = item.opts.cc;
@@ -89,11 +86,11 @@ $(function(){
       tm.filter("counter");
 
       if (!filters.length) {//show 'All'
-          for (cc in countries) {
-              if (countries[cc] > 0) {
-                dynamicSizeMarker(cc, countries[cc]);
-              }
+        for (cc in countries) {
+          if (countries[cc] > 0) {
+            dynamicSizeMarker(cc, countries[cc]);
           }
+        }
       }
 
       updateTimeframe(tm.timeline.getBand(0));
@@ -120,16 +117,16 @@ $(function(){
     }
   });
 
-  tm.addFilter("map", TimeMap.filters.hasSelectedTag); // hide map markers on fail
   tm.addFilter("timeline", TimeMap.filters.hasSelectedTag); // hide timeline events on fail
+  tm.addFilter("map", TimeMap.filters.hasSelectedTag); // hide map markers on fail
   tm.addFilter("map", TimeMap.filters.showAll);
 
-  $('#tm-all').attr('checked', true);
-  $("#tmfilters input[type=checkbox]:not('#tm-all')").each(function() {
+  $('#filters').attr('checked', true);
+  $("#filters input[type=checkbox]:not('#tm-all')").each(function() {
     $(this).attr('checked', false);
   });
   // TODO rework the logic.
-  $("#tmfilters input[type=checkbox]").click(function(){
+  $("#filters input[type=checkbox]").click(function(){
     var val = $(this).val();
     var index = filters.indexOf(val);
     var el = $(this);
@@ -137,7 +134,7 @@ $(function(){
       if (val == "All") {
         filters = [];
 
-        $("#tmfilters input[type=checkbox]:not('#tm-all')").each(function() {
+        $("#filters input[type=checkbox]:not('#tm-all')").each(function() {
             $(this).attr('checked', false);
         });
       }
@@ -173,11 +170,13 @@ $(function(){
       }
     }
 
-    tm.filter('map');tm.filter('timeline');tm.timeline.layout();
+    tm.filter('map');
+    tm.filter('timeline');
+    tm.timeline.layout();
   });
 
   var d = new Date();
-  $('#tm-nav button').click(function() {
+  $('#navigation button').click(function() {
     var when = $(this).attr('title');
 
     if (when == "earliest") {

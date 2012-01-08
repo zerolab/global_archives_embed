@@ -23,8 +23,7 @@
     }
 
     #timelinecontainer {
-      height:35%;
-      min-height:200px;
+      height:100px;
       width:100%;
     }
 
@@ -33,9 +32,11 @@
       width:100%;
     }
 
-
-    p.content {font-size: 12px;width: 30em;}
-    #tmfilters {padding:10px 0;border:1px solid #d8dfea;}
+    #timeline-controls {
+      border:1px solid #d8dfea;
+      overflow:hidden;
+      padding:10px;
+    }
     div.infotitle {font-size: 14px;font-weight:700;}
 
     .infodescription a {
@@ -57,7 +58,9 @@
       margin-bottom:5px;
       padding-bottom:5px;
     }
-    #tm-nav button {width:110px;margin:5px 5px 0;}
+    div.timeline-band-scrollbar-thumb {
+      height:10px!important;
+    }
   </style>
 
   <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA4A20khrw6ws6G9zPM1mzRhTDjF32IQ1zA0BVcGSuGouGRvo0kRSKNDr96LtcC48U2vwGT-e0Zmcnsw"></script>
@@ -74,19 +77,29 @@
     <div id="map"></div>
   </div>
 
-  <div id="tmfilters">
-    <form>
-      <label for="tm-all" class="tm-all"> <input value="All" id="tm-all" checked="checked" type="checkbox" /> Group by country </label>
-      <label for="tm-ua" class="tm-ua"> <input value="Under Arrest" id="tm-ua" type="checkbox" /> Under Arrest </label>
-      <label for="tm-rel" class="tm-rel"> <input value="Released" id="tm-rel" type="checkbox" /> Released </label>
-      <label for="tm-th" class="tm-th"> <input value="Threatened" id="tm-th" type="checkbox" /> Threatened </label>
-      <label for="tm-de" class="tm-de"> <input value="Deceased" id="tm-de" type="checkbox" /> Deceased </label>
-      <label for="tm-unk" class="tm-unk"> <input value="Unknown" id="tm-unk" type="checkbox" /> Unknown </label>
+  <div id="timeline-controls">
+    <form id="filters">
+      <label for="tm-all" class="tm-all">
+        <input value="All" id="tm-all" checked="checked" type="checkbox" /> Group by country
+      </label>
+      <label for="tm-ua" class="tm-ua">
+        <input value="Under Arrest" id="tm-ua" type="checkbox" /> Under Arrest
+      </label>
+      <label for="tm-rel" class="tm-rel">
+        <input value="Released" id="tm-rel" type="checkbox" />  Released
+      </label>
+      <label for="tm-th" class="tm-th">
+        <input value="Threatened" id="tm-th" type="checkbox" /> Threatened
+      </label>
+      <label for="tm-de" class="tm-de">
+        <input value="Deceased" id="tm-de" type="checkbox" /> Deceased
+      </label>
+      <label for="tm-unk" class="tm-unk">
+        <input value="Unknown" id="tm-unk" type="checkbox" /> Unknown
+      </label>
     </form>
-  </div>
 
-  <div id="timeline-info">
-    <form id="tm-nav">
+    <form id="navigation">
       <button class="form-submit" title="earliest">Earliest case</button>
       <button title="now" class="form-submit">Today</button>
       <button class="form-submit" title="latest">Last case</button>
