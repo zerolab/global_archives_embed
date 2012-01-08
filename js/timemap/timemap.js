@@ -1736,9 +1736,7 @@ TimeMapDataset.prototype.loadItem = function(data, transform) {
                 item.openInfoWindow();
             });
             // add custom listener for infowindowopen
-            GEvent.addListener(placemark[i], "infowindowopen", function() {
-            	updateInfoList(item.opts.url);
-			});
+            GEvent.addListener(placemark[i], "infowindowopen", function() {});
             // allow for custom placemark loading
             if (!ds.opts.noPlacemarkLoad) {
                 // add placemark to map
