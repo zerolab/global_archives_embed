@@ -16,6 +16,14 @@ body {
   padding:0;
 }
 
+h1 {
+  font:24px/2 Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+p {
+  margin:0 0 1em;
+}
+
 a, a:visited {
   color:#e1523d;
   border-bottom:1px solid #f00;
@@ -24,4 +32,25 @@ a, a:visited {
 
 a:focus, a:hover {
   color:#f00;
+}
+
+input,
+textarea {
+  border:1px solid #ccc;
+}
+
+textarea {
+  width:99%;
+}
+
+header,
+#content {
+  margin:1em auto;
+  width:50em;
+}
+
+#preview {
+  border:4px solid #ccc;
+  padding:1em;
+  text-align:center;
 }
