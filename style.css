@@ -3,8 +3,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 body{line-height:1}
 ol,ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:none}
+blockquote{quotes:none}
+blockquote:before,blockquote:after{content:none}
 table{border-collapse:collapse;border-spacing:0}
 
 /* Styles */
@@ -16,8 +16,17 @@ body {
   padding:0;
 }
 
+h1, h2 {
+  font-family:Georgia, serif;
+  text-rendering:optimizeLegibility;
+}
+
 h1 {
-  font:24px/2 Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size:2em;
+}
+
+h2 {
+  font-size:1.5em;
 }
 
 p {
@@ -43,11 +52,30 @@ textarea {
   width:99%;
 }
 
+q {
+  color:#666;
+  font-family:Georgia, serif;
+  font-style:italic;
+}
+
+strong {
+  font-weight:700;
+}
+
+#roadmap ul {
+  font-size:.9em;
+  list-style:circle;
+}
+
 header,
 section,
 footer {
   margin:1em auto;
   width:50em;
+}
+
+article header {
+  margin:0;
 }
 
 #preview {

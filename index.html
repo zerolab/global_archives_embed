@@ -12,19 +12,44 @@
   <h1>Global Archives Embed</h1>
 </header>
 <section id="content">
-  <p>The Global Archives Embed widget is a simple, quick embed for <a href="http://threatened.globalvoicesonline.org">Threatened Voices</a>,
-  a <q>collaborative mapping project to build a database of bloggers who have been threatened, arrested or killed for speaking out online and to draw attention to the campaigns to free them.</q>
-  </p>
-  <p>To use it, simply copy the code below and paste it on your site. The widget requires a minimum of 400px width and height, because of its map + timeline mashup nature</p>
+  <article>
+    <p>The Global Archives Embed widget is a simple, quick embed for <a href="http://threatened.globalvoicesonline.org">Threatened Voices</a>,
+    a <q>collaborative mapping project to build a database of bloggers who have been threatened, arrested or killed for speaking out online and to draw attention to the campaigns to free them.</q></p>
 
-  <textarea id="code"><iframe src="http://threatened.globalvoicesonline.org/embed" allowtransparency="true" scrolling="0" framborder="0" width="640" height="400"></iframe></textarea>
+    <p>The widget currently uses a bundled <a href="www.simile-widgets.org/timeline/" title="Simile Widget Timeline homepage">Simile Widgets Timeline</a> v2.4-dev, <a href="timemap.googlecode.com" title="TimeMap on GoogleCode">TimeMap.js</a> v1.6 and a stripped down, cleaned version of the initialization scripts from Threatened Voices.</p>
+  </article>
 
-  <div id="preview">
-    <iframe src="http://threatened.globalvoicesonline.org/embed" allowtransparency="true" scrolling="0" frameborder="0" width="640" height="400"></iframe>
-  </div>
+  <article id="embed">
+    <header>
+      <h2>Embed</h2>
+    </header>
+
+    <p>To use the widget, simply copy the code below and paste it on your site. The widget requires a minimum of 400px width and height, because of its map + timeline mashup nature</p>
+
+    <textarea id="code"><iframe src="http://threatened.globalvoicesonline.org/embed" allowtransparency="true" scrolling="0" framborder="0" width="640" height="400"></iframe></textarea>
+
+    <div id="preview">
+      <iframe src="http://threatened.globalvoicesonline.org/embed" allowtransparency="true" scrolling="0" frameborder="0" width="640" height="400"></iframe>
+    </div>
+  </article>
+
+  <article id="roadmap">
+    <header>
+      <h2>Roadmap</h2>
+    </header>
+
+    <ul>
+      <li>Switch to Timemap v2</li>
+      <li>Simplify the initialization script</li>
+      <li>Simplify the dynamic markers code</li>
+      <li>Make use of local storage for some of the files (css/js)</li>
+      <li>Switch to map only view on small sizes</li>
+      <li>Allow embed parameters to initialize with data subsets</li>
+    </ul>
+  </article>
 </section>
 <footer>
-  <p>A collaboration between <a href="http://advocacy.threatenedvoicesonline.org" title="Advox">Global Voices Advocacy</a>
+  <p>The <strong>Global Archives Embed</strong> is a collaboration between <a href="http://advocacy.threatenedvoicesonline.org" title="Advox">Global Voices Advocacy</a>
   and <a href="https://eff.org" title="EFF">Electronic Frontier Foundation</a></p>
 </footer>
 </body>
