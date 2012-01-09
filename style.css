@@ -44,7 +44,8 @@ textarea {
 }
 
 header,
-#content {
+section,
+footer {
   margin:1em auto;
   width:50em;
 }
